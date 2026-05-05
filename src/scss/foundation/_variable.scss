@@ -1,0 +1,17 @@
+﻿$color-text: #333333;
+$color-footer-bg: #4f5262;
+$color-light: #d9d9d9;
+$color-accent: #303346;
+
+$colors: (
+  text: $color-text,
+  footer-bg: $color-footer-bg,
+  light: $color-light,
+  accent: $color-accent
+);
+
+$z-index: (
+  header: 100,
+  drawer: 500,
+  modal: 1000
+);

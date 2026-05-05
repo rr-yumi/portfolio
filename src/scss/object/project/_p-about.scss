@@ -1,0 +1,52 @@
+@use "../../foundation" as foundation;
+
+.p-about__lead {
+  font-size: foundation.rem(18);
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.p-about__text {
+  margin-bottom: 1rem;
+}
+
+.p-about__img {
+  @include foundation.mq-min(smmd) {
+    position: absolute;
+    top: 50%;
+    right: 51px;
+    transform: translate(-50%, -50%);
+
+    img {
+      max-width: 387px;
+    }
+  }
+
+  @include foundation.mq-max(smmd) {
+    @include foundation.full-bleed(0);
+  }
+}
+
+@include foundation.mq-min(smmd) {
+  .p-about__img.is-follow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: auto;
+    z-index: 4;
+    transform: translate3d(0, 0, 0);
+    pointer-events: none;
+    will-change: transform;
+  }
+
+  .p-about__img.is-follow.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .p-about__img.is-follow img {
+    display: block;
+    max-width: 320px;
+    transform: translate(-50%, -50%);
+  }
+}

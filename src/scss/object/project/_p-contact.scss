@@ -1,0 +1,107 @@
+@use "../../foundation" as foundation;
+
+.p-contact__ttl {
+  font-weight: 400;
+  padding-bottom: .5em;
+  position: relative;
+
+  &::after {
+    content: '';
+    width: 772px;
+    height: .5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @include foundation.mq-max(smmd) {
+      width: 80%;
+    }
+  }
+}
+
+.p-contact {
+  padding-top: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  border-radius: 10px;
+  padding: 30px 32px 30px 26px;
+  overflow: hidden;
+  transition: opacity .3s cubic-bezier(0.6, 0.25, 0, 1);
+}
+
+.p-contact__textWrap {
+  position: relative;
+  display: inline-grid;
+  overflow: hidden;
+}
+
+.p-contact__text {
+  grid-area: 1 / 1;
+  display: inline-block;
+  transition: transform .45s cubic-bezier(0.6, 0.25, 0, 1), opacity .45s cubic-bezier(0.6, 0.25, 0, 1);
+}
+
+.p-contact__text--base {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.p-contact__text--hover {
+  transform: translateY(115%);
+  opacity: 0;
+}
+
+.p-contact__iconWrap {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  display: inline-grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.p-contact__icon {
+  border: 1px solid;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  grid-area: 1 / 1;
+  transition: transform .45s cubic-bezier(0.6, 0.25, 0, 1), opacity .45s cubic-bezier(0.6, 0.25, 0, 1);
+
+  img {
+    width: 13px;
+  }
+}
+
+.p-contact__icon--base {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.p-contact__icon--hover {
+  transform: translateY(115%);
+  opacity: 0;
+}
+
+.p-contact__link:hover .p-contact__text--base,
+.p-contact__link:focus-visible .p-contact__text--base,
+.p-contact__link:hover .p-contact__icon--base,
+.p-contact__link:focus-visible .p-contact__icon--base {
+  transform: translateY(-115%);
+  opacity: 0;
+}
+
+.p-contact__link:hover .p-contact__text--hover,
+.p-contact__link:focus-visible .p-contact__text--hover,
+.p-contact__link:hover .p-contact__icon--hover,
+.p-contact__link:focus-visible .p-contact__icon--hover {
+  transform: translateY(0);
+  opacity: 1;
+}

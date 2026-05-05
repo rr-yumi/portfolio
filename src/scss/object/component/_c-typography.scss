@@ -1,0 +1,33 @@
+@use "../../foundation" as foundation;
+
+.c-lv2Headeing {
+  color: foundation.$color-accent;
+  margin-bottom: 2rem;
+}
+
+.c-lv2Headeing__label {
+  font-size: foundation.rem(18);
+  font-weight: 500;
+
+  @include foundation.mq-max(smmd) {
+    font-size: foundation.rem(16);
+  }
+}
+
+.c-lv2Headeing__ttl {
+  font-size: foundation.rem(32);
+  font-weight: 700;
+
+  @include foundation.mq-max(smmd) {
+    font-size: foundation.rem(22);
+  }
+}
+
+.c-lv3Headeing__ttl {
+  font-size: foundation.rem(18);
+  font-weight: 600;
+
+  @include foundation.mq-max(smmd) {
+    font-size: foundation.rem(16);
+  }
+}

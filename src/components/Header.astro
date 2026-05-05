@@ -1,0 +1,36 @@
+---
+const siteTitle = "PORTFOLIO";
+const label = "Yuzuki.";
+const links = [
+    {href: "#skills", label:"SKILLS"},
+  {href: "#works", label:"WORKS"},
+  {href: "#about", label:"ABOUT"},
+  {href: "#contact", label:"CONTACT"},
+];
+---
+
+<header class="l-header">
+  <div class="l-header__inner">
+    <p class="p-header__label">{label}</p>
+
+    <a href="/" class="p-header__logo">{siteTitle}</a>
+
+    <div id="global-container">
+      <div class="p-header__container">
+        <button class="p-header__menu" type="button" aria-label="Main navigation">
+          <span class="p-header__line"></span>
+        </button>
+      </div>
+          <nav aria-label="Main navigation" class="p-header__nav">
+      <ul class="p-header__nav-list">
+        {links.map((link) => (
+          <li class="p-header__nav-item">
+            <a href={link.href}>{link.label}</a>
+            </li>
+        ))}
+      </ul>
+    </nav>
+    </div>
+  
+  </div>
+</header>

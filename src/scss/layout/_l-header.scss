@@ -1,0 +1,67 @@
+﻿@use "../foundation" as foundation;
+
+.l-header {
+  width: 100%;
+  color: foundation.$color-text;
+  font-weight: 400;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  transform: translateY(0);
+  opacity: 1;
+  transition: transform .5s ease, opacity .5s ease;
+}
+
+.l-header.is-on-hero {
+  color: foundation.$color-light;
+
+  .p-header__label {
+    opacity: 1;
+  }
+}
+
+.l-header.is-hidden {
+  transform: translateY(-120%);
+  opacity: 0;
+}
+
+.l-header__inner {
+  @include foundation.full-bleed(51px);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 2em;
+  padding-bottom: 2em;
+
+  @include foundation.mq-max(smmd) {
+    @include foundation.full-bleed(16px);
+  }
+}
+
+#global-container {
+  position: relative;
+
+  >.p-header__nav {
+    position: absolute;
+    top: 185%;
+    padding-top: 12px;
+    right: 0;
+    visibility: hidden;
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: none;
+  }
+}
+
+#global-container.menu-open {
+  >.p-header__nav {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+}

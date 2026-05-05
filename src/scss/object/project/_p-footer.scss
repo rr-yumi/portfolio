@@ -1,0 +1,29 @@
+@use "../../foundation" as foundation;
+
+.p-copyright {
+  padding-bottom: 1em;
+  font-weight: 400;
+  font-size: foundation.rem(14);
+}
+
+.p-footer__prompt {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 30;
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #222;
+  font-size: foundation.rem(13);
+  letter-spacing: 0.04em;
+  opacity: 0;
+  pointer-events: auto;
+  cursor: pointer;
+  transition: opacity 0.24s ease;
+}
+
+.p-footer__prompt.is-visible {
+  opacity: 1;
+}

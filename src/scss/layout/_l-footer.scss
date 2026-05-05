@@ -1,0 +1,11 @@
+﻿@use "../foundation" as foundation;
+
+.l-footer {
+  background-color: foundation.$color-footer-bg;
+  color: #fff;
+  text-align: center;
+}
+
+.l-footer__inner {
+  padding: 200px 0;
+}

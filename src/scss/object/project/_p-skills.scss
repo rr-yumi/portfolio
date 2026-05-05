@@ -1,0 +1,32 @@
+@use "../../foundation" as foundation;
+
+.p-skills__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 42px;
+  column-gap: 25px;
+  margin: 4rem 0;
+
+  @include foundation.mq-max(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include foundation.mq-max(sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.p-skills__item {
+  border: 1px solid;
+  display: inline-block;
+  padding: 23px 42px 30px;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  @include foundation.mq-max(sm) {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}

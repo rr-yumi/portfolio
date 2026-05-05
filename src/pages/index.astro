@@ -1,11 +1,114 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const image = 'public/images/about_img.png';
+const seo = {
+  title: "Yuzuki Portfolio | コーディング・Web制作",
+  description: "WordPress・Astroを中心に、Web制作、デザイン、広告運用まで対応するYuzukiのポートフォリオです。",
+  ogImage: "/images/ogp.png"
+};
 ---
+<Layout title={seo.title} description={seo.description} ogImage={seo.ogImage}>
+	<Header />
 
-<Layout>
-	<Welcome />
+	
+	<main>
+		    <section class="l-hero" aria-label="Hero">
+      <div class="p-hero" id="hero-scene">
+        <canvas class="p-hero__sky" id="hero-sky"></canvas>
+        <div class="p-hero__overlay" id="hero-overlay"></div>
+        <div class="p-hero__content" id="hero-content">
+          <h1 class="p-hero__title">何度も夜明けを見た。<br />その積み重ねが、<br />今の自分をつくっている。</h1>
+          <p class="p-hero__sub">Coding / Design / Marketing</p>
+        </div>
+        <button class="p-hero__replay" id="hero-replay" type="button">もう一度</button>
+      </div>
+    </section>
+
+		<div id="skills" class="l-skills l-section">
+			<div class="c-lv2Headeing">
+				<span class="c-lv2Headeing__label">Skills</span>
+				<h2 class="c-lv2Headeing__ttl">できること</h2>
+			</div>
+			<div class="p-skills">
+				<ul class="p-skills__list">
+					<li class="p-skills__item">
+						<h3 class="c-lv3Headeing__ttl">WordPress</h3>
+						<span>Webサイト製作・管理画面の最適化</span>
+					</li>
+
+					<li class="p-skills__item">
+						<h3 class="c-lv3Headeing__ttl">Astro</h3>
+						<span>静的サイト設計</span>
+					</li>
+
+					<li class="p-skills__item">
+						<h3 class="c-lv3Headeing__ttl">STUDIO</h3>
+						<span>ノーコード</span>
+					</li>
+
+					<li class="p-skills__item">
+						<h3 class="c-lv3Headeing__ttl">EC</h3>
+						<span>カラーミーショップ / Shopify</span>
+					</li>
+
+					<li class="p-skills__item">
+						<h3 class="c-lv3Headeing__ttl">Figma</h3>
+						<span>Webデザイン</span>
+					</li>
+
+					<li class="p-skills__item">
+						<h3 class="c-lv3Headeing__ttl">広告運用</h3>
+						<span>Google / Yahoo! / Meta</span>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+
+		<div id="works" class="l-works l-section">
+			<div class="c-lv2Headeing">
+				<span class="c-lv2Headeing__label">Works</span>
+				<h2 class="c-lv2Headeing__ttl">制作実績</h2>
+			</div>
+			<div>
+				<p>
+					掲載できるものを準備中<br>
+					このPORTFOLIO(ポートフォリオ)はAstroで構築しています。
+				</p>
+			</div>
+		</div>
+
+		<div id="about" class="l-about l-section">
+			<div class="c-lv2Headeing">
+				<span class="c-lv2Headeing__label">About</span>
+				<h2 class="c-lv2Headeing__ttl">自己紹介</h2>
+			</div>
+
+			<div class="p-about">
+				<p class="p-about__lead">
+				「何度も夜明けを見た。その積み重ねが、今の自分をつくっている。」
+				</p>
+				<p class="p-about__text">
+					自分の人となりをどう表現しようかなと悩んで<br>
+					家族が起きてくるまでの朝の時間で自己研鑽を続けてきた日々があったので、<br>
+					そんな情景が浮かぶような、少しキャッチーなファーストビジュアルにしてみました（笑）
+					</p>
+					<p class="p-about__text">
+					改めまして、わたしは現在広告代理店でコーダーとして働いています。勤務年数は5年です。<br>
+					WordPressを中心に、Astro・STUDIOでのWeb制作やECサイトの構築を手がけています。<br>
+					デザインや広告運用の知識もあるので、サイト制作から集客まで一貫して対応できます。
+					</p>
+					<p class="p-about__text">	
+					今後こちらに載せられるものは、実績に掲載していきます。
+					</p>
+			</div>
+			<div class="p-about__img">
+			<img src={image} alt="">
+			</div>
+		</div>
+	</main>
+	<Footer />
 </Layout>

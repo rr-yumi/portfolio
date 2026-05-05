@@ -1,0 +1,91 @@
+﻿@use "../../foundation" as foundation;
+
+.p-hero {
+  position: relative;
+  width: 100%;
+  min-height: 70vh;
+  height: 100dvh;
+  overflow: hidden;
+  background: linear-gradient(to bottom,
+      #0E2048 0%,
+      #0E2352 10%,
+      #0D275C 20%,
+      #0A2D67 30%,
+      #0A3474 40%,
+      #093F80 50%,
+      #225393 60%,
+      #526DA5 70%,
+      #8689AA 80%,
+      #8B7582 100%);
+}
+
+.p-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(to bottom,
+      rgba(4, 9, 24, 0.55) 0%,
+      rgba(4, 9, 24, 0.3) 45%,
+      rgba(4, 9, 24, 0.12) 100%);
+  opacity: 0;
+}
+
+.p-hero__sky {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.p-hero__content {
+  position: absolute;
+  left: 51px;
+  bottom: 2rem;
+  z-index: 3;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.p-hero.is-animating .p-hero__content {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.p-hero__label {
+  margin-bottom: 8px;
+  font-size: foundation.rem(11);
+  letter-spacing: 0.15em;
+  color: rgba(255, 230, 180, 0.75);
+}
+
+.p-hero__title {
+  margin: 0 0 10px;
+  font-size: foundation.rem(40);
+  line-height: 1.4;
+  font-weight: 500;
+  letter-spacing: .05em;
+  color: #d9d9d9;
+}
+
+.p-hero__sub {
+  font-size: foundation.rem(12);
+  color: #d9d9d9;
+}
+
+.p-hero__replay {
+  display: none;
+}
+
+@include foundation.mq-max(smmd) {
+  .p-hero__content {
+    left: 16px;
+  }
+
+  .p-hero__title {
+    font-size: foundation.rem(22);
+  }
+}

@@ -1,0 +1,30 @@
+﻿@use "../foundation" as foundation;
+
+body {
+  color: foundation.$color-text;
+}
+
+.l-hero {
+  @include foundation.full-bleed(0);
+}
+
+.l-section {
+  padding-top: 263px;
+  padding-bottom: 200px;
+  @include foundation.full-bleed(51px);
+
+  @include foundation.mq-max(smmd) {
+    @include foundation.full-bleed(16px);
+    padding-top: 213px;
+    padding-bottom: 150px;
+  }
+}
+
+.l-works {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.l-about {
+  position: relative;
+}

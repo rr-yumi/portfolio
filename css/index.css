@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..700;1,100..700&family=Noto+Sans+JP:wght@100..700&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Jost", "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  margin: 0;
+}
+
+ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.p-header__label {
+  font-size: 0.75rem;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  justify-self: flex-start;
+}
+
+.p-header__menu {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  justify-self: center;
+}
+
+.p-header__line {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: #d9d9d9;
+  justify-self: end;
+  border-radius: 50%;
+}
+
+.p-herot__ttl {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #303346;
+}
+
+.p-herot__sub {
+  font-size: 1.125rem;
+  color: #303346;
+  font-weight: 400;
+}
+
+.p-skills__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 42px;
+  -moz-column-gap: 25px;
+       column-gap: 25px;
+  margin: 4rem 0;
+}
+
+.p-skills__item {
+  background-color: #d9d9d9;
+  display: inline-block;
+  padding: 23px 42px 30px;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.p-about__lead {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.p-about__text {
+  margin-bottom: 1rem;
+}
+
+.l-contact {
+  background-color: #4f5262;
+}
+/*# sourceMappingURL=index.css.map */

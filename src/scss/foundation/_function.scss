@@ -1,0 +1,22 @@
+@use "sass:math";
+@use "variable" as v;
+
+@function strip-unit($value) {
+  @return math.div($value, ($value * 0 + 1));
+}
+
+@function rem($px, $base: 16) {
+  @return math.div(strip-unit($px), $base) * 1rem;
+}
+
+@function ls($value, $base-font-size: 16) {
+  @return math.div(strip-unit($value), $base-font-size) * 1em;
+}
+
+@function lh($line-height, $font-size) {
+  @return math.div(strip-unit($line-height), strip-unit($font-size));
+}
+
+@function z($key) {
+  @return map-get(v.$z-index, $key);
+}
