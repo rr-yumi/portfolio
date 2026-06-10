@@ -1,0 +1,74 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getWorks } from '../../lib/notion';
+
+const { items: works, error: worksError } = await getWorks();
+const seo = {
+  title: "Works | Yuzuki Portfolio",
+  description: "Yuzukiの制作実績一覧です。",
+  ogImage: "/images/ogp.png"
+};
+---
+<Layout title={seo.title} description={seo.description} ogImage={seo.ogImage}>
+  <Header />
+
+  <main>
+    <div id="works" class="l-works l-section">
+      <div class="c-lv2Headeing">
+        <span class="c-lv2Headeing__label">Works</span>
+        <h1 class="c-lv2Headeing__ttl">制作実績一覧</h1>
+      </div>
+      <div class="p-works">
+        {works.length > 0 ? (
+          <ul class="p-works__list">
+            {works.map((work) => (
+              <li class="p-works__item">
+                <h2 class="p-works__title">{work.title}</h2>
+                <div class="p-works__meta">
+                  {work.industry && (
+                    <div class="p-works__row">
+                      <p class="p-works__label">業界</p>
+                      <p class="p-works__text">{work.industry}</p>
+                    </div>
+                  )}
+                  {work.responsibilities.length > 0 && (
+                    <div class="p-works__row">
+                      <p class="p-works__label">担当範囲</p>
+                      <div class="p-works__tags">
+                        {work.responsibilities.map((item) => (
+                          <span class="p-works__tag">{item}</span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {work.technologies.length > 0 && (
+                    <div class="p-works__row">
+                      <p class="p-works__label">使用技術</p>
+                      <div class="p-works__tags">
+                        {work.technologies.map((item) => (
+                          <span class="p-works__tag">{item}</span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <div class="p-works__empty">
+            <p>Notionの実績テーブルを連携すると、ここに一覧表示されます。</p>
+            {worksError && <p class="p-works__error">{worksError}</p>}
+          </div>
+        )}
+        <div class="p-works__actions">
+          <a class="c-button" href="/">トップへ戻る</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

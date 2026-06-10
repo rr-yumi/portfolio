@@ -1,0 +1,76 @@
+@use "../../foundation" as foundation;
+
+.p-works {
+  margin-top: 4rem;
+}
+
+.p-works__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+
+  @include foundation.mq-max(md) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include foundation.mq-max(sm) {
+
+    grid-template-columns: 1fr;
+  }
+}
+
+.p-works__item {
+  border: 1px solid foundation.$color-text;
+  border-radius: 1rem;
+  padding: 28px;
+  background-color: rgba(255, 255, 255, 0.72);
+  display: inline-flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.p-works__row {
+  margin-bottom: 2em;
+}
+
+.p-works__label {
+  font-weight: 600;
+  min-height: 32px;
+  padding: 5px 25px;
+  border-radius: 999px;
+  background-color: foundation.$color-text;
+  color: #fff;
+  display: inline-block;
+  margin-bottom: .5em;
+}
+
+.p-works__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.p-works__tag,
+.p-works__text {
+  letter-spacing: .15em;
+  padding-left: .5em;
+}
+
+.p-works__empty {
+  font-size: 1.6rem;
+  line-height: 1.9;
+}
+
+.p-works__error {
+  margin-top: 16px;
+  color: #9f1c1c;
+  font-size: 1.4rem;
+  line-height: 1.7;
+  word-break: break-word;
+}
+
+.p-works__actions {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+}

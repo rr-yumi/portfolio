@@ -2,8 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { getWorks } from '../lib/notion';
 
 const image = '/images/about_img.png';
+const { items: works, error: worksError } = await getWorks();
+const topWorks = works.slice(0, 6);
 const seo = {
   title: "Yuzuki Portfolio | コーディング・Web制作",
   description: "WordPress・Astroを中心に、Web制作、デザイン、広告運用まで対応するYuzukiのポートフォリオです。",
@@ -16,7 +19,7 @@ const seo = {
 	
 	<main>
 		    <section class="l-hero" aria-label="Hero">
-      <div class="p-hero" id="hero-scene">
+      <div class="p-hero is-animating" id="hero-scene">
         <canvas class="p-hero__sky" id="hero-sky"></canvas>
         <div class="p-hero__overlay" id="hero-overlay"></div>
         <div class="p-hero__content" id="hero-content">
@@ -73,11 +76,57 @@ const seo = {
 				<span class="c-lv2Headeing__label">Works</span>
 				<h2 class="c-lv2Headeing__ttl">制作実績</h2>
 			</div>
-			<div>
-				<p>
-					掲載できるものを準備中<br>
-					このPORTFOLIO(ポートフォリオ)はAstroで構築しています。
-				</p>
+			<div class="p-works">
+				{topWorks.length > 0 ? (
+					<ul class="p-works__list">
+						{topWorks.map((work) => (
+							<li class="p-works__item">
+								<h3 class="p-works__title">{work.title}</h3>
+								<div class="p-works__meta">
+									{work.industry && (
+										<div class="p-works__row">
+											<p class="p-works__label">業界</p>
+											<p class="p-works__text">{work.industry}</p>
+										</div>
+									)}
+									{work.responsibilities.length > 0 && (
+										<div class="p-works__row">
+											<p class="p-works__label">担当範囲</p>
+											<div class="p-works__tags">
+												{work.responsibilities.map((item) => (
+													<span class="p-works__tag">{item}</span>
+												))}
+											</div>
+										</div>
+									)}
+									{work.technologies.length > 0 && (
+										<div class="p-works__row">
+											<p class="p-works__label">使用技術</p>
+											<div class="p-works__tags">
+												{work.technologies.map((item) => (
+													<span class="p-works__tag">{item}</span>
+												))}
+											</div>
+										</div>
+									)}
+								</div>
+							</li>
+						))}
+					</ul>
+				) : (
+					<div class="p-works__empty">
+						<p>
+							Notionの実績テーブルを連携すると、ここに一覧表示されます。<br />
+							このPORTFOLIO(ポートフォリオ)はAstroで構築しています。
+						</p>
+						{worksError && <p class="p-works__error">{worksError}</p>}
+					</div>
+				)}
+				{works.length > 6 && (
+					<div class="p-works__actions">
+						<a class="c-button" href="/works/">一覧を見る</a>
+					</div>
+				)}
 			</div>
 		</div>
 
