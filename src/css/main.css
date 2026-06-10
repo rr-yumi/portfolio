@@ -474,7 +474,16 @@ body {
   background-color: #333333;
   color: #fff;
   display: inline-block;
-  margin-bottom: 0.5em;
+  margin-bottom: 1em;
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 575.98px) {
+  .p-works__label {
+    padding: 0 15px;
+  }
 }
 
 .p-works__tags {
@@ -516,8 +525,12 @@ body {
 
 .p-about__text {
   margin-bottom: 1rem;
+  line-height: 1.85;
 }
 
+.p-about__img {
+  margin-top: 3em;
+}
 @media (min-width: 959.98px) {
   .p-about__img {
     position: absolute;
@@ -662,3 +675,5 @@ body {
   transform: translateY(0);
   opacity: 1;
 }
+
+/*# sourceMappingURL=main.css.map */

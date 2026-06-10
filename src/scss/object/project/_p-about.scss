@@ -8,9 +8,12 @@
 
 .p-about__text {
   margin-bottom: 1rem;
+  line-height: 1.85;
 }
 
 .p-about__img {
+  margin-top: 3em;
+
   @include foundation.mq-min(smmd) {
     position: absolute;
     top: 50%;

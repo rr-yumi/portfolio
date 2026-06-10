@@ -41,7 +41,15 @@
   background-color: foundation.$color-text;
   color: #fff;
   display: inline-block;
-  margin-bottom: .5em;
+  margin-bottom: 1em;
+  font-size: .875rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  @include foundation.mq-max(sm) {
+    padding: 0 15px;
+  }
 }
 
 .p-works__tags {
