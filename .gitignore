@@ -23,3 +23,13 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# editor settings
+.vscode/
+
+# source maps
+css/*.map
+src/css/*.map
+
+# local scratch files
+dawn_crossfade.html
