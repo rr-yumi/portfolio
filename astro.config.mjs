@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.SITE_URL,
+  site: 'https://portfolio-nine-ecru-vjgzzeqg7s.vercel.app',
   vite: {
     resolve: {
       preserveSymlinks: true,
