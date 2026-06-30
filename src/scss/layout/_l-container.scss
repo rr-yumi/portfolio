@@ -19,6 +19,7 @@ body {
 .l-section {
   padding-top: 90px;
   padding-bottom: 90px;
+  scroll-margin-top: calc(var(--anchor-offset, 0px) + 24px);
   @include foundation.full-bleed(51px);
 
   @include foundation.mq-max(smmd) {

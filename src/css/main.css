@@ -12,6 +12,7 @@ body {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--anchor-offset, 0px) + 24px);
 }
 
 body {
@@ -69,6 +70,7 @@ body {
 .l-section {
   padding-top: 90px;
   padding-bottom: 90px;
+  scroll-margin-top: calc(var(--anchor-offset, 0px) + 24px);
   width: 100%;
   margin-inline: 0;
   padding-inline: 51px;
@@ -785,3 +787,5 @@ h1 {
   transform: translateY(0);
   opacity: 1;
 }
+
+/*# sourceMappingURL=main.css.map */
