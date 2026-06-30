@@ -1,55 +1,43 @@
 @use "../../foundation" as foundation;
 
-.p-about__lead {
-  font-size: foundation.rem(18);
-  font-weight: 700;
-  margin-bottom: 2rem;
+.p-about {
+  flex: 1;
+}
+
+.p-about__en {
+  font-size: foundation.rem(105);
+  font-weight: 400;
+
+  @include foundation.mq-max(smmd) {
+    font-size: foundation.rem(40);
+  }
+}
+
+.p-about__label {
+  font-size: foundation.rem(16);
+  font-weight: 400;
+  color: #767676;
+  padding-top: 1rem;
+
+  @include foundation.mq-max(smmd) {
+    font-size: foundation.rem(14);
+  }
+}
+
+.p-about__list {
+  margin-top: 3em;
+}
+
+.p-about__item {
+  padding: 1em;
+  border-bottom: 1px solid;
 }
 
 .p-about__text {
-  margin-bottom: 1rem;
-  line-height: 1.85;
-}
-
-.p-about__img {
-  margin-top: 3em;
-
-  @include foundation.mq-min(smmd) {
-    position: absolute;
-    top: 50%;
-    right: 51px;
-    transform: translate(-50%, -50%);
-
-    img {
-      max-width: 387px;
-    }
-  }
+  line-height: 2;
+  padding-bottom: 1em;
 
   @include foundation.mq-max(smmd) {
-    @include foundation.full-bleed(0);
-  }
-}
-
-@include foundation.mq-min(smmd) {
-  .p-about__img.is-follow {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: auto;
-    z-index: 4;
-    transform: translate3d(0, 0, 0);
-    pointer-events: none;
-    will-change: transform;
-  }
-
-  .p-about__img.is-follow.is-hidden {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  .p-about__img.is-follow img {
-    display: block;
-    max-width: 320px;
-    transform: translate(-50%, -50%);
+    font-size: foundation.rem(14);
   }
 }

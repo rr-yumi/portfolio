@@ -4,27 +4,48 @@ body {
   color: foundation.$color-text;
 }
 
+.pc-cut {
+  display: none;
+
+  @include foundation.mq-max(smmd) {
+    display: block
+  }
+}
+
 .l-hero {
   @include foundation.full-bleed(0);
 }
 
 .l-section {
-  padding-top: 263px;
-  padding-bottom: 200px;
+  padding-top: 90px;
+  padding-bottom: 90px;
   @include foundation.full-bleed(51px);
 
   @include foundation.mq-max(smmd) {
     @include foundation.full-bleed(16px);
-    padding-top: 213px;
-    padding-bottom: 150px;
+    padding-top: 100px;
+    padding-bottom: 40px;
   }
 }
 
-.l-works {
-  padding-top: 50px;
-  padding-bottom: 50px;
+.l-skills {
+  padding-top: 150px;
+
+  @include foundation.mq-max(smmd) {
+    padding-top: 150px;
+  }
 }
 
 .l-about {
-  position: relative;
+  display: flex;
+  gap: 200px;
+  padding-bottom: 150px;
+
+  @include foundation.mq-max(smmd) {
+    display: block;
+  }
+}
+
+#page.l-works {
+  padding-top: 150px;
 }

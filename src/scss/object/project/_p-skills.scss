@@ -5,7 +5,7 @@
   grid-template-columns: repeat(3, 1fr);
   row-gap: 42px;
   column-gap: 25px;
-  margin: 4rem 0;
+  margin-top: 4rem;
 
   @include foundation.mq-max(md) {
     grid-template-columns: repeat(2, 1fr);

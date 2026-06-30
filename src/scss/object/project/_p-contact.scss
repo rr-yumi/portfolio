@@ -62,6 +62,11 @@
   display: inline-grid;
   place-items: center;
   overflow: hidden;
+
+  @include foundation.mq-max(smmd) {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 .p-contact__icon {
@@ -75,8 +80,17 @@
   grid-area: 1 / 1;
   transition: transform .45s cubic-bezier(0.6, 0.25, 0, 1), opacity .45s cubic-bezier(0.6, 0.25, 0, 1);
 
+  @include foundation.mq-max(smmd) {
+    width: 40px;
+    height: 40px;
+  }
+
   img {
     width: 13px;
+
+    @include foundation.mq-max(smmd) {
+      width: 10px;
+    }
   }
 }
 

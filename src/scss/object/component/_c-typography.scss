@@ -1,12 +1,7 @@
 @use "../../foundation" as foundation;
 
-.c-lv2Headeing {
-  color: foundation.$color-accent;
-  margin-bottom: 2rem;
-}
-
-.c-lv2Headeing__label {
-  font-size: foundation.rem(18);
+h1 {
+  font-size: foundation.rem(20);
   font-weight: 500;
 
   @include foundation.mq-max(smmd) {
@@ -14,9 +9,14 @@
   }
 }
 
+.c-lv2Headeing {
+  color: foundation.$color-accent;
+  margin-bottom: 1rem;
+}
+
 .c-lv2Headeing__ttl {
-  font-size: foundation.rem(32);
-  font-weight: 700;
+  font-size: foundation.rem(28);
+  font-weight: 500;
 
   @include foundation.mq-max(smmd) {
     font-size: foundation.rem(22);

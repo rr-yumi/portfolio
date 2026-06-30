@@ -4,6 +4,12 @@
   margin-top: 4rem;
 }
 
+.p-works__title {
+  @include foundation.mq-max(smmd) {
+    font-size: foundation.rem(18);
+  }
+}
+
 .p-works__list {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -62,6 +68,10 @@
 .p-works__text {
   letter-spacing: .15em;
   padding-left: .5em;
+
+  @include foundation.mq-max(smmd) {
+    font-size: foundation.rem(14);
+  }
 }
 
 .p-works__empty {
@@ -78,7 +88,7 @@
 }
 
 .p-works__actions {
-  margin-top: 32px;
+  margin-top: 4rem;
   display: flex;
   justify-content: center;
 }

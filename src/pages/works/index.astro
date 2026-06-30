@@ -15,7 +15,7 @@ const seo = {
   <Header />
 
   <main>
-    <div id="works" class="l-works l-section">
+    <div id="page" class="l-works l-section">
       <div class="c-lv2Headeing">
         <span class="c-lv2Headeing__label">Works</span>
         <h1 class="c-lv2Headeing__ttl">制作実績一覧</h1>
@@ -64,7 +64,16 @@ const seo = {
           </div>
         )}
         <div class="p-works__actions">
-          <a class="c-button" href="/">トップへ戻る</a>
+          <a class="c-button c-button--back" href="/" aria-label="トップへ戻る">
+            <span class="c-button__textWrap" aria-hidden="true">
+              <span class="c-button__text c-button__text--base">トップへ戻る</span>
+              <span class="c-button__text c-button__text--hover">トップへ戻る</span>
+            </span>
+            <span class="c-button__iconWrap" aria-hidden="true">
+              <span class="c-button__icon c-button__icon--base"><img src="/images/arrow_dark.svg" alt="矢印" /></span>
+              <span class="c-button__icon c-button__icon--hover"><img src="/images/arrow_dark.svg" alt="" /></span>
+            </span>
+          </a>
         </div>
       </div>
     </div>

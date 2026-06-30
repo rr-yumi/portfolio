@@ -2,35 +2,68 @@
 const siteTitle = "PORTFOLIO";
 const label = "Yuzuki.";
 const links = [
-    {href: "#skills", label:"SKILLS"},
-  {href: "#works", label:"WORKS"},
-  {href: "#about", label:"ABOUT"},
-  {href: "#contact", label:"CONTACT"},
+    {href: "/#service", label:"SERVICE"},
+  {href: "/works/", label:"WORKS"},
+  {href: "/#about", label:"ABOUT"},
+  {href: "/#contact", label:"CONTACT"},
 ];
 ---
 
 <header class="l-header">
   <div class="l-header__inner">
-    <p class="p-header__label">{label}</p>
+    <h1 class="l-header__logo">
+       <a href="/" class="p-header__logo">{siteTitle}</a>
+    </h1>
 
-    <a href="/" class="p-header__logo">{siteTitle}</a>
+    <div id="global-container" class="p-header__menuWrap">
+      <button
+        class="p-header__toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="global-nav"
+        aria-label="メニューを開く"
+      >
+        <span class="p-header__toggleDot"></span>
+      </button>
 
-    <div id="global-container">
-      <div class="p-header__container">
-        <button class="p-header__menu" type="button" aria-label="Main navigation">
-          <span class="p-header__line"></span>
-        </button>
-      </div>
-          <nav aria-label="Main navigation" class="p-header__nav">
-      <ul class="p-header__nav-list">
-        {links.map((link) => (
-          <li class="p-header__nav-item">
-            <a href={link.href}>{link.label}</a>
+      <nav id="global-nav" aria-label="Main navigation" class="p-header__nav">
+        <ul class="p-header__nav-list">
+          {links.map((link) => (
+            <li class="p-header__nav-item">
+              <a href={link.href}>{link.label}</a>
             </li>
-        ))}
-      </ul>
-    </nav>
+          ))}
+        </ul>
+      </nav>
     </div>
-  
   </div>
 </header>
+
+<script>
+  const headerMenuWrap = document.getElementById("global-container");
+  const headerToggle = headerMenuWrap?.querySelector(".p-header__toggle");
+  const headerNavLinks = headerMenuWrap?.querySelectorAll(".p-header__nav a");
+
+  const closeHeaderMenu = () => {
+    if (!headerMenuWrap || !headerToggle) return;
+    headerMenuWrap.classList.remove("is-open");
+    headerToggle.setAttribute("aria-expanded", "false");
+    headerToggle.setAttribute("aria-label", "メニューを開く");
+  };
+
+  const toggleHeaderMenu = () => {
+    if (!headerMenuWrap || !headerToggle) return;
+    const isOpen = headerMenuWrap.classList.toggle("is-open");
+    headerToggle.setAttribute("aria-expanded", String(isOpen));
+    headerToggle.setAttribute("aria-label", isOpen ? "メニューを閉じる" : "メニューを開く");
+  };
+
+  headerToggle?.addEventListener("click", toggleHeaderMenu);
+  headerNavLinks?.forEach((link) => link.addEventListener("click", closeHeaderMenu));
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 959.96) {
+      closeHeaderMenu();
+    }
+  });
+</script>

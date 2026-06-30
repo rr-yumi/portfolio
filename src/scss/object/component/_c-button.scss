@@ -4,19 +4,117 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 1em;
   min-height: 48px;
   padding: 0 50px;
-  border: 1px solid foundation.$color-text;
-  border-radius: 999px;
   color: foundation.$color-text;
+  overflow: hidden;
   transition:
     background-color 0.2s ease,
     color 0.2s ease,
     border-color 0.2s ease;
+}
 
-  &:hover {
-    background-color: foundation.$color-text;
-    border-color: foundation.$color-text;
-    color: #fff;
+.c-button__textWrap {
+  position: relative;
+  display: inline-grid;
+  overflow: hidden;
+}
+
+.c-button__text {
+  grid-area: 1 / 1;
+  display: inline-block;
+  transition: transform .45s cubic-bezier(0.6, 0.25, 0, 1), opacity .45s cubic-bezier(0.6, 0.25, 0, 1);
+}
+
+.c-button__text--base {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.c-button__text--hover {
+  transform: translateY(115%);
+  opacity: 0;
+}
+
+.c-button:hover .c-button__text--base,
+.c-button:focus-visible .c-button__text--base {
+  transform: translateY(-115%);
+  opacity: 0;
+}
+
+.c-button:hover .c-button__text--hover,
+.c-button:focus-visible .c-button__text--hover {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.c-button__iconWrap {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  display: inline-grid;
+  place-items: center;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  @include foundation.mq-max(smmd) {
+    width: 40px;
+    height: 40px;
   }
+}
+
+.c-button__icon {
+  width: 50px;
+  height: 50px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-area: 1 / 1;
+  transition: transform .45s cubic-bezier(0.6, 0.25, 0, 1), opacity .45s cubic-bezier(0.6, 0.25, 0, 1);
+
+  @include foundation.mq-max(smmd) {
+    width: 40px;
+    height: 40px;
+  }
+
+  img {
+    width: 13px;
+
+    @include foundation.mq-max(smmd) {
+      width: 10px;
+    }
+  }
+}
+
+.c-button--back .c-button__iconWrap {
+  order: -1;
+}
+
+.c-button--back .c-button__icon img {
+  transform: scaleX(-1);
+}
+
+.c-button__icon--base {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.c-button__icon--hover {
+  transform: translateY(115%);
+  opacity: 0;
+}
+
+.c-button:hover .c-button__icon--base,
+.c-button:focus-visible .c-button__icon--base {
+  transform: translateY(-115%);
+  opacity: 0;
+}
+
+.c-button:hover .c-button__icon--hover,
+.c-button:focus-visible .c-button__icon--hover {
+  transform: translateY(0);
+  opacity: 1;
 }

@@ -5,11 +5,15 @@ import Footer from '../components/Footer.astro';
 import { getWorks } from '../lib/notion';
 
 const image = '/images/about_img.png';
+const web = '/images/web.jpg';
+const ec = '/images/ec.jpg';
+const marketing = '/images/marketing.jpg';
 const { items: works, error: worksError } = await getWorks();
 const topWorks = works.slice(0, 6);
+const worksCountLabel = `${works.length}+ Projects`;
 const seo = {
-  title: "Yuzuki Portfolio | コーディング・Web制作",
-  description: "WordPress・Astroを中心に、Web制作、デザイン、広告運用まで対応するYuzukiのポートフォリオです。",
+  title: "Portfolio | コーディング・Web制作",
+  description: "WordPress・Astroを中心に、Web制作、デザイン、広告運用まで対応いたします。",
   ogImage: "/images/ogp.png"
 };
 ---
@@ -18,53 +22,36 @@ const seo = {
 
 	
 	<main>
-		    <section class="l-hero" aria-label="Hero">
-      <div class="p-hero is-animating" id="hero-scene">
-        <canvas class="p-hero__sky" id="hero-sky"></canvas>
-        <div class="p-hero__overlay" id="hero-overlay"></div>
-        <div class="p-hero__content" id="hero-content">
-          <h1 class="p-hero__title">何度も夜明けを見た。<br />その積み重ねが、<br />今の自分をつくっている。</h1>
-          <p class="p-hero__sub">Coding / Design / Marketing</p>
-        </div>
-        <button class="p-hero__replay" id="hero-replay" type="button">もう一度</button>
-      </div>
-    </section>
-
-		<div id="skills" class="l-skills l-section">
+		<div id="service" class="l-skills l-section">
 			<div class="c-lv2Headeing">
-				<span class="c-lv2Headeing__label">Skills</span>
-				<h2 class="c-lv2Headeing__ttl">できること</h2>
+				<h2 class="c-lv2Headeing__ttl">SERVICE</h2>
 			</div>
 			<div class="p-skills">
 				<ul class="p-skills__list">
 					<li class="p-skills__item">
-						<h3 class="c-lv3Headeing__ttl">WordPress</h3>
-						<span>Webサイト製作・管理画面の最適化</span>
+						<figure class="p-skills__img">
+						<img src={web} alt="Web制作">
+						</figure>	
+						<h3 class="c-lv3Headeing__ttl">Webサイト＆LP制作【デザインからコーディングまで】</h3>
+							<p>HTML/CSS・Wordpress構築・Astro構築<br>
+							GSAPなどを使った多彩なアニメーションの実装</p>
 					</li>
 
 					<li class="p-skills__item">
-						<h3 class="c-lv3Headeing__ttl">Astro</h3>
-						<span>静的サイト設計</span>
+						<figure class="p-skills__img">
+						<img src={ec} alt="Web制作">
+						</figure>	
+						<h3 class="c-lv3Headeing__ttl">ECサイト制作</h3>
+						<span>Shopify構築・カラーミーショップ構築</span>
 					</li>
 
 					<li class="p-skills__item">
-						<h3 class="c-lv3Headeing__ttl">STUDIO</h3>
-						<span>ノーコード</span>
-					</li>
-
-					<li class="p-skills__item">
-						<h3 class="c-lv3Headeing__ttl">EC</h3>
-						<span>カラーミーショップ / Shopify</span>
-					</li>
-
-					<li class="p-skills__item">
-						<h3 class="c-lv3Headeing__ttl">Figma</h3>
-						<span>Webデザイン</span>
-					</li>
-
-					<li class="p-skills__item">
-						<h3 class="c-lv3Headeing__ttl">広告運用</h3>
-						<span>Google / Yahoo! / Meta</span>
+						<figure class="p-skills__img">
+						<img src={marketing} alt="Web制作">
+						</figure>	
+						<h3 class="c-lv3Headeing__ttl">Web広告運用【解析ツールの設置から運用まで】</h3>
+						<p>Google広告・Yahoo!広告・Meta広告<br>
+						広告レポート作成・分析・改善提案</p>
 					</li>
 				</ul>
 			</div>
@@ -73,8 +60,7 @@ const seo = {
 
 		<div id="works" class="l-works l-section">
 			<div class="c-lv2Headeing">
-				<span class="c-lv2Headeing__label">Works</span>
-				<h2 class="c-lv2Headeing__ttl">制作実績</h2>
+				<h2 class="c-lv2Headeing__ttl">WORKS</h2>
 			</div>
 			<div class="p-works">
 				{topWorks.length > 0 ? (
@@ -124,7 +110,16 @@ const seo = {
 				)}
 				{works.length > 6 && (
 					<div class="p-works__actions">
-						<a class="c-button" href="/works/">一覧を見る</a>
+						<a class="c-button" href="/works/" aria-label="すべての実績">
+							<span class="c-button__textWrap" aria-hidden="true">
+								<span class="c-button__text c-button__text--base">すべての実績</span>
+								<span class="c-button__text c-button__text--hover">すべての実績</span>
+							</span>
+							<span class="c-button__iconWrap" aria-hidden="true">
+								<span class="c-button__icon c-button__icon--base"><img src="/images/arrow_dark.svg" alt="矢印" /></span>
+								<span class="c-button__icon c-button__icon--hover"><img src="/images/arrow_dark.svg" alt="" /></span>
+							</span>
+						</a>
 					</div>
 				)}
 			</div>
@@ -132,30 +127,47 @@ const seo = {
 
 		<div id="about" class="l-about l-section">
 			<div class="c-lv2Headeing">
-				<span class="c-lv2Headeing__label">About</span>
-				<h2 class="c-lv2Headeing__ttl">自己紹介</h2>
+				<h2 class="c-lv2Headeing__ttl">ABOUT</h2>
 			</div>
 
 			<div class="p-about">
-				<p class="p-about__lead">
-				「何度も夜明けを見た。その積み重ねが、今の自分をつくっている。」
-				</p>
 				<p class="p-about__text">
-					自分の人となりをどう表現しようかなと悩んで<br>
-					家族が起きてくるまでの朝の時間で自己研鑽を続けてきた日々があったので、<br>
-					そんな情景が浮かぶような、少しキャッチーなファーストビジュアルにしてみました（笑）
+					現在広告代理店でコーダーとして働いています。
 					</p>
 					<p class="p-about__text">
-					改めまして、わたしは現在広告代理店でコーダーとして働いています。勤務年数は5年です。<br>
-					WordPressを中心に、Astro・STUDIOでのWeb制作やECサイトの構築を手がけています。<br>
-					デザインや広告運用の知識もあるので、サイト制作から集客まで一貫して対応できます。
+				WordPressを中心に、Astro・STUDIOを用いたWebサイト制作や、Shopify・カラーミーでのECサイト構築に携わっています。<br>
+				また、Laravelを用いたシステムの運用・保守にも携わり、既存機能の改修やメンテナンスを行っています。	
 					</p>
 					<p class="p-about__text">	
-					今後こちらに載せられるものは、実績に掲載していきます。
+デザインや広告運用にも携わっているため、コーディングだけでなく、サイト全体の目的やユーザー体験を意識したWeb制作を心がけています。<br>
+新しい技術や知識を積極的に学びながら、より良いサイトづくりを目指しています。
 					</p>
-			</div>
-			<div class="p-about__img">
-			<img src={image} alt="">
+			<ul class="p-about__list">
+				<li class="p-about__item">
+					<p class="p-about__en">
+					5year
+					</p>
+					<h3 class="p-about__label">
+					IT業界歴
+					</h3>	
+				</li>
+				<li class="p-about__item">
+					<p class="p-about__en">
+					{worksCountLabel}
+					</p>
+					<h3 class="p-about__label">
+					掲載制作実績
+					</h3>	
+				</li>
+				<li class="p-about__item">
+					<p class="p-about__en">
+					10 Technologies
+					</p>
+					<h3 class="p-about__label">
+					WordPress／Astro／Laravel／Shopify／カラーミー／STUDIO／GoogleAds／Yahoo!Ads／Meta Ads／Figma
+					</h3>	
+				</li>
+			</ul>
 			</div>
 		</div>
 	</main>
