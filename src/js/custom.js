@@ -1,79 +1,51 @@
-﻿'use strict';
+'use strict';
 
 class MobileMenu {
   constructor() {
     this.DOM = {};
-    this.DOM.btn = document.querySelector('.p-header__menu');
     this.DOM.container = document.querySelector('#global-container');
-    this.DOM.links = document.querySelectorAll('#global-container .p-header__nav a');
-    this.closeTimer = null;
+    this.DOM.btn = this.DOM.container?.querySelector('.p-header__toggle');
+    this.DOM.links = this.DOM.container?.querySelectorAll('.p-header__nav a');
+    this.desktopBreakpoint = 959.96;
 
-    if (!this.DOM.btn || !this.DOM.container) {
+    if (!this.DOM.btn || !this.DOM.container || !this.DOM.links) {
       return;
     }
 
-    this.isTouchCapable = this._isTouchCapable();
     this._addEvent();
   }
 
-  _isTouchCapable() {
-    return (
-      'ontouchstart' in window ||
-      navigator.maxTouchPoints > 0 ||
-      navigator.msMaxTouchPoints > 0
-    );
+  _setExpandedState(isOpen) {
+    this.DOM.container.classList.toggle('is-open', isOpen);
+    this.DOM.btn.setAttribute('aria-expanded', String(isOpen));
+    this.DOM.btn.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
   }
 
   _toggle() {
-    this.DOM.container.classList.toggle('menu-open');
-  }
-
-  _open() {
-    if (this.closeTimer) {
-      clearTimeout(this.closeTimer);
-      this.closeTimer = null;
-    }
-    this.DOM.container.classList.add('menu-open');
+    const isOpen = this.DOM.container.classList.contains('is-open');
+    this._setExpandedState(!isOpen);
   }
 
   _close() {
-    this.DOM.container.classList.remove('menu-open');
-  }
-
-  _closeWithDelay() {
-    if (this.closeTimer) {
-      clearTimeout(this.closeTimer);
-    }
-
-    this.closeTimer = setTimeout(() => {
-      this._close();
-      this.closeTimer = null;
-    }, 180);
+    this._setExpandedState(false);
   }
 
   _addEvent() {
-    if (this.isTouchCapable) {
-      this.DOM.btn.addEventListener('click', this._toggle.bind(this));
+    this.DOM.btn.addEventListener('click', this._toggle.bind(this));
 
-      this.DOM.links.forEach((link) => {
-        link.addEventListener('click', this._close.bind(this));
-      });
+    this.DOM.links.forEach((link) => {
+      link.addEventListener('click', this._close.bind(this));
+    });
 
-      document.addEventListener('click', (event) => {
-        if (!this.DOM.container.contains(event.target)) {
-          this._close();
-        }
-      });
+    document.addEventListener('click', (event) => {
+      if (!this.DOM.container.contains(event.target)) {
+        this._close();
+      }
+    });
 
-      return;
-    }
-
-    this.DOM.container.addEventListener('mouseenter', this._open.bind(this));
-    this.DOM.container.addEventListener('mouseleave', this._closeWithDelay.bind(this));
-    this.DOM.container.addEventListener('focusin', this._open.bind(this));
-    this.DOM.container.addEventListener('focusout', (event) => {
-      if (!this.DOM.container.contains(event.relatedTarget)) {
-        this._closeWithDelay();
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > this.desktopBreakpoint) {
+        this._close();
       }
     });
   }

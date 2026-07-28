@@ -1,18 +1,17 @@
 ---
 const siteTitle = "PORTFOLIO";
-const label = "Yuzuki.";
 const links = [
-    {href: "/#service", label:"SERVICE"},
-  {href: "/works/", label:"WORKS"},
-  {href: "/#about", label:"ABOUT"},
-  {href: "/#contact", label:"CONTACT"},
+  { href: "/#service", label: "SERVICE" },
+  { href: "/works/", label: "WORKS" },
+  { href: "/#about", label: "ABOUT" },
+  { href: "/#contact", label: "CONTACT" }
 ];
 ---
 
 <header class="l-header">
   <div class="l-header__inner">
     <h1 class="l-header__logo">
-       <a href="/" class="p-header__logo">{siteTitle}</a>
+      <a href="/" class="p-header__logo">{siteTitle}</a>
     </h1>
 
     <div id="global-container" class="p-header__menuWrap">
@@ -38,32 +37,3 @@ const links = [
     </div>
   </div>
 </header>
-
-<script>
-  const headerMenuWrap = document.getElementById("global-container");
-  const headerToggle = headerMenuWrap?.querySelector(".p-header__toggle");
-  const headerNavLinks = headerMenuWrap?.querySelectorAll(".p-header__nav a");
-
-  const closeHeaderMenu = () => {
-    if (!headerMenuWrap || !headerToggle) return;
-    headerMenuWrap.classList.remove("is-open");
-    headerToggle.setAttribute("aria-expanded", "false");
-    headerToggle.setAttribute("aria-label", "メニューを開く");
-  };
-
-  const toggleHeaderMenu = () => {
-    if (!headerMenuWrap || !headerToggle) return;
-    const isOpen = headerMenuWrap.classList.toggle("is-open");
-    headerToggle.setAttribute("aria-expanded", String(isOpen));
-    headerToggle.setAttribute("aria-label", isOpen ? "メニューを閉じる" : "メニューを開く");
-  };
-
-  headerToggle?.addEventListener("click", toggleHeaderMenu);
-  headerNavLinks?.forEach((link) => link.addEventListener("click", closeHeaderMenu));
-
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > 959.96) {
-      closeHeaderMenu();
-    }
-  });
-</script>

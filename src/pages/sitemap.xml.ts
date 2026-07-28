@@ -4,7 +4,7 @@ export function GET() {
   const site = import.meta.env.SITE ?? FALLBACK_SITE;
   const base = new URL(site);
   const now = new Date().toISOString();
-  const routes = ["/"];
+  const routes = ["/", "/works/"];
 
   const urls = routes
     .map((route) => {
